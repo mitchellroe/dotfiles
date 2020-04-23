@@ -545,38 +545,22 @@ before packages are loaded."
   (use-package gnus
     ;; gnus is big, so don't load it on startup.
     :defer t
-    :init
+    :config
     ;; Load in some variables from a file that is not under version control.
-    (setq mitchellroe/gnus-variable-file (expand-file-name ".gnus-vars.el" (getenv "HOME")))
+    (setq mitchellroe/gnus-variable-file
+          (expand-file-name ".gnus-vars.el" (getenv "HOME")))
     (when (file-exists-p mitchellroe/gnus-variable-file)
       (load mitchellroe/gnus-variable-file))
-    :config
     ;; gnus' sorting is a bit strange. This puts it at a much more sane normal.
     (setq gnus-article-sort-functions
           '(gnus-article-sort-by-number gnus-article-sort-by-date))
     ;; Don't make me go in there and mark the message you just put in a folder
     ;; as read.
     (setq gnus-gcc-mark-as-read t)
-    ;; Depending on which account I'm in, change the sender address.
-    (setq gnus-posting-styles
-          '(("^nnimap[+]personal:.*"
-             (address mitchellroe/gnus-email-address-personal)
-             (name "Mitchell Roe")
-             ("X-Message-SMTP-Method" mitchellroe/gnus-smtp-method-personal))
-            ("^nnimap[+]work:.*"
-             (address mitchellroe/gnus-email-address-work)
-             (name "Mitchell Roe")
-             ("X-Message-SMTP-Method" mitchellroe/gnus-smtp-method-work))))
-    ;; Set up two "secondary" methods as the ones you're going to use, then set
-    ;; the "primary" method as nil. This makes it so that each account (which I
-    ;; use equally) show up with their prefixes.
-    (setq gnus-secondary-select-methods
-          '((nnimap "personal"
-                    (nnimap-address mitchellroe/gnus-nnimap-address-personal)
-                    (nnimap-server-port "imaps"))
-            (nnimap "work"
-                    (nnimap-address mitchellroe/gnus-nnimap-address-work)
-                    (nnimap-server-port "imaps"))))
+    ;; `gnus-posting-styles' is set in `mitchellroe/gnus-variable-file'.
+    ;; `gnus-secondary-select-methods' is set in `mitchellroe/gnus-variable-file'.
+    ;; Set the "primary" method as nil. This makes it so that each account
+    ;; (which I use equally) shows up with their prefixes.
     (setq gnus-select-method '(nnnil ""))
     (setq mail-host-address (getenv "HOSTNAME"))
     ;; Sets the citation line to be something like this:
