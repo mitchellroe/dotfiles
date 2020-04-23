@@ -527,7 +527,7 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
-  ;; Add the ~/.emacs.d/lisp directory to the load-path
+  ;; Add the ~/.lisp directory to the load-path
   (let ((default-directory "~/.lisp"))
     (normal-top-level-add-subdirs-to-load-path))
 
@@ -601,7 +601,7 @@ before packages are loaded."
     (markdown-mode . auto-fill-mode)
     (markdown-mode . visual-line-mode))
 
-  (progn                                ;In the ~/.emacs.d/lisp directory
+  (progn                                ;In the ~/.lisp directory
     (require 'moinmoin-mode))
 
   (use-package org
@@ -612,7 +612,7 @@ before packages are loaded."
     (add-hook 'org-mode-hook '(lambda () nil
                                 (add-hook 'before-save-hook 'delete-trailing-whitespace))))
 
-  (progn                                ;In the ~/.emacs.d/lisp directory
+  (progn                                ;In the ~/.lisp directory
     (require 'sh-extra-font-lock)
     (add-hook 'sh-mode-hook 'sh-extra-font-lock-activate))
 
