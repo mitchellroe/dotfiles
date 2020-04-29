@@ -31,8 +31,8 @@ export MM_ADMIN_USERNAME=mitchellroe
 # MM_ADMIN_PASSWORD is set in ~/.zshenv-private
 
 # Emacs
-export EDITOR='emacsclient'
-export ALTERNATE_EDITOR='emacs'
+# export EDITOR='emacsclient'
+# export ALTERNATE_EDITOR='emacs'
 alias e='emacsclient -nw -a emacs'
 
 # GitLab
