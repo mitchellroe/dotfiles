@@ -93,6 +93,7 @@ This function should only modify configuration layer settings."
                                       atomic-chrome
                                       bbdb
                                       dap-mode
+                                      dictionary
                                       edit-indirect
                                       fill-column-indicator
                                       go-snippets
