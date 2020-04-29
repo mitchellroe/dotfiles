@@ -43,5 +43,7 @@ addToPath "/opt/runit/command" "${HOME}/.rbenv/bin" \
 
 export PATH
 
+alias esxcli="/usr/bin/esxcli --server='vc6.sys.oakland.edu' --username='op_mbroe@admnet' --thumbprint='E3:79:A6:9A:A1:7A:92:6A:59:B2:72:D0:87:6A:CF:EB:18:F0:0C:88'"
+
 # Left over from the GitLab setup.
 eval "$(rbenv init -)"
