@@ -581,6 +581,10 @@ before packages are loaded."
     :hook
     (go-mode . spacemacs/toggle-camel-case-motion-on))
 
+  (progn
+    (require 'google-c-style)
+    (add-hook 'c-mode-common-hook 'google-set-c-style))
+
   (use-package markdown-mode
     :hook
     (markdown-mode . auto-fill-mode)
