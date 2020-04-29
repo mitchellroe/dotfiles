@@ -35,7 +35,10 @@ export MM_ADMIN_USERNAME=mitchellroe
 # export ALTERNATE_EDITOR='emacs'
 alias e='emacsclient -nw -a emacs'
 
-Some tmux stuff
+# Trying to get into vSphere
+alias esxcli="/usr/bin/esxcli --server='vc6.sys.oakland.edu' --username='op_mbroe@admnet' --thumbprint='E3:79:A6:9A:A1:7A:92:6A:59:B2:72:D0:87:6A:CF:EB:18:F0:0C:88'"
+
+# Some tmux stuff
 alias tmux='env TERM=screen-256color tmux'
 
 # GitLab
@@ -45,8 +48,6 @@ addToPath "/opt/runit/command" "${HOME}/.rbenv/bin" \
 # last, though, as it mucks with the PATH directly.
 
 export PATH
-
-alias esxcli="/usr/bin/esxcli --server='vc6.sys.oakland.edu' --username='op_mbroe@admnet' --thumbprint='E3:79:A6:9A:A1:7A:92:6A:59:B2:72:D0:87:6A:CF:EB:18:F0:0C:88'"
 
 # Left over from the GitLab setup.
 eval "$(rbenv init -)"
