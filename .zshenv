@@ -35,6 +35,9 @@ export MM_ADMIN_USERNAME=mitchellroe
 # export ALTERNATE_EDITOR='emacs'
 alias e='emacsclient -nw -a emacs'
 
+Some tmux stuff
+alias tmux='env TERM=screen-256color tmux'
+
 # GitLab
 addToPath "/opt/runit/command" "${HOME}/.rbenv/bin" \
           "${HOME}/.rbenv/shims"
