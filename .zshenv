@@ -44,6 +44,9 @@ addToPath "/opt/runit/command" "${HOME}/.rbenv/bin" \
 # Also need to run `eval $(rbenv init -)`, according to rbenv's docs. Run it
 # last, though, as it mucks with the PATH directly.
 
+# snapd
+addToPath "/var/lib/snapd/snap/bin"
+
 export PATH
 
 # Left over from the GitLab setup.
