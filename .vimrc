@@ -19,3 +19,5 @@ let g:NERDCompactSexyComs = 1
 let g:markdown_enable_spell_checking = 0
 
 colorscheme elflord
+
+" set list listchars=tab:>>\ ,trail:'
