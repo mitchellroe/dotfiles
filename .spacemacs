@@ -80,6 +80,7 @@ This function should only modify configuration layer settings."
      syntax-checking
      treemacs
      version-control
+     vimscript
      yaml
      )
 
