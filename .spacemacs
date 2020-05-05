@@ -545,6 +545,10 @@ before packages are loaded."
     :config
     (atomic-chrome-start-server))
 
+  (use-package dired
+    :config
+    (setq dired-listing-switches "-ahl --group-directories-first"))
+
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
   (use-package gnus
