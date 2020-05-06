@@ -658,13 +658,16 @@ REGION."
     ;; Handy key definition
     (define-key global-map "\M-Q" 'unfill-paragraph))
 
-  ;; Change the window decoration to the dark theme
-  (start-process-shell-command
-   "set emacs colors" "*Messages*"
-   (concat
-    "xprop -f _GTK_THEME_VARIANT 8u"
-    " -set _GTK_THEME_VARIANT 'dark'"
-    " -name 'emacs@" system-name "'"))
+  ;; Make the window decoration dark
+  (require 'frame-fns)
+  (defun set-selected-frame-dark ()
+    (interactive)
+    (let ((frame-name (get-frame-name (selected-frame))))
+      (call-process-shell-command (concat "xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT \"dark\" -name \""
+                                          frame-name
+                                          "\""))))
+  (if (window-system)
+      (set-selected-frame-dark))
 
   ;; Works around https://github.com/syl20bnr/spacemacs/issues/10949
   (spacemacs|use-package-add-hook markdown-mode

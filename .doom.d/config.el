@@ -89,8 +89,23 @@
 
 (use-package yaml-mode
   :config
-  (add-hook 'yaml-mode-hook 'highlight-indentation-current-column-mode)
-  (add-hook 'yaml-mode-hook '(lambda () nil
-                               (add-hook 'before-save-hook 'delete-trailing-whitespace))))
+  (add-hook 'yaml-mode-hook 'highlight-indentation-current-column-mode))
+  ;; (add-hook 'yaml-mode-hook '(lambda () nil
+  ;;                              (add-hook 'before-save-hook 'delete-trailing-whitespace))))
+
+;; Add the ~/.lisp directory to the load-path
+(let ((default-directory "~/.lisp"))
+  (normal-top-level-add-subdirs-to-load-path))
+
+;; Make the window decoration dark
+(require 'frame-fns)
+(defun set-selected-frame-dark ()
+  (interactive)
+  (let ((frame-name (get-frame-name (selected-frame))))
+    (call-process-shell-command (concat "xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT \"dark\" -name \""
+                                        frame-name
+                                        "\""))))
+(if (window-system)
+    (set-selected-frame-dark))
 
 (setq scroll-margin 3)
