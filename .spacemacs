@@ -637,17 +637,6 @@ before packages are loaded."
     (add-hook 'yaml-mode-hook '(lambda () nil
                                  (add-hook 'before-save-hook 'delete-trailing-whitespace))))
 
-  ;; Add search functionality into the projectile layer
-  (spacemacs/declare-prefix "ps" "search")
-  (if helm-mode
-      (progn
-        (spacemacs/set-leader-keys "psr" 'helm-projectile-rg)
-        (spacemacs/set-leader-keys "pss" 'helm-projectile-ag)))
-  (if ivy-mode
-      (progn
-        (spacemacs/set-leader-keys "psr" 'counsel-projectile-rg)
-        (spacemacs/set-leader-keys "pss" 'counsel-projectile-ag)))
-
   ;; Add character insertion shortcut
   (spacemacs/set-leader-keys "ic" 'insert-char)
 
