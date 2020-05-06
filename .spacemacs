@@ -627,7 +627,8 @@ before packages are loaded."
 
   (use-package vterm
     :config
-    (bind-key "C-c C-d" 'vterm-send-C-d vterm-mode-map))
+    (bind-key "C-c C-d" 'vterm-send-C-d vterm-mode-map)
+    (setq vterm-kill-buffer-on-exit t))
 
   (use-package yaml-mode
     :hook
