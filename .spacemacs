@@ -71,8 +71,10 @@ This function should only modify configuration layer settings."
      python
      restructuredtext
      (shell :variables
+            close-window-with-terminal t
             shell-default-height 30
-            shell-default-position 'bottom)
+            shell-default-position 'bottom
+            shell-default-shell 'vterm)
      shell-scripts
      slack
      spell-checking
@@ -622,6 +624,10 @@ before packages are loaded."
   ;; Turn on visual-line-mode in text-mode buffers.
   (add-hook 'text-mode-hook (lambda () ""
                               (visual-line-mode 1)))
+
+  (use-package vterm
+    :config
+    (bind-key "C-c C-d" 'vterm-send-C-d vterm-mode-map))
 
   (use-package yaml-mode
     :hook
