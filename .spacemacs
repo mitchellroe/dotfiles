@@ -60,7 +60,7 @@ This function should only modify configuration layer settings."
      ;; helm
      html
      ivy
-     javascript
+     ;; javascript
      latex
      lsp
      (markdown :variables
