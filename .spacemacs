@@ -102,6 +102,7 @@ This function should only modify configuration layer settings."
                                       doom-themes
                                       edit-indirect
                                       fill-column-indicator
+                                      gitlab
                                       go-snippets
                                       ;; helm-rg
                                       ini-mode
@@ -552,6 +553,12 @@ before packages are loaded."
     (setq dired-listing-switches "-ahl --group-directories-first"))
 
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+
+  ;; gitlab
+  (use-package gitlab
+    :config
+    (setq gitlab-host "https://code.oakland.edu"
+          gitlab-token-id "foo"))
 
   (use-package gnus
     ;; gnus is big, so don't load it on startup.
