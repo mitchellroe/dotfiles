@@ -621,6 +621,16 @@ before packages are loaded."
     :init
     (setq sh-basic-offset 2))
 
+  (use-package slack
+    :defer t
+    :config
+    (slack-register-team
+     :name "outechpros"
+     :token (auth-source-pick-first-password
+             :host "outechpros.slack.com"
+             :user "mbroe@oakland.edu")
+     :subscribed-channels '((general))))
+
   ;; Turn on visual-line-mode in text-mode buffers.
   (add-hook 'text-mode-hook (lambda () ""
                               (visual-line-mode 1)))
