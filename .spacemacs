@@ -535,23 +535,32 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
+  ;; Custom packages
   ;; Add the ~/.lisp directory to the load-path
   (let ((default-directory "~/.lisp"))
     (normal-top-level-add-subdirs-to-load-path))
 
-  ;; Works around an issue with the ansible layer.
-  (require 'ansible)
-  (require 'ansible-doc)
+  ;;;;;;;;;;;;;;
+  ;; Packages ;;
+  ;;;;;;;;;;;;;;
 
+  ;; ;; ansible
+  ;; ;; Works around an issue with the ansible layer.
+  ;; (require 'ansible)
+  ;; (require 'ansible-doc)
+
+  ;; atomic-chrome
   (use-package atomic-chrome
     :ensure t
     :config
     (atomic-chrome-start-server))
 
+  ;; dired
   (use-package dired
     :config
     (setq dired-listing-switches "-ahl --group-directories-first"))
 
+  ;; doc-view
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
   ;; gitlab
@@ -560,6 +569,7 @@ before packages are loaded."
     (setq gitlab-host "https://code.oakland.edu"
           gitlab-token-id "foo"))
 
+  ;; gnus
   (use-package gnus
     ;; gnus is big, so don't load it on startup.
     :defer t
@@ -594,22 +604,27 @@ before packages are loaded."
     ;; makes much sense for it to be _below_ the forwarded message.
     (setq message-forward-before-signature nil))
 
+  ;; go-mode
   (use-package go-mode
     :hook
     (go-mode . spacemacs/toggle-camel-case-motion-on))
 
+  ;; google-c-style
   (progn
     (require 'google-c-style)
     (add-hook 'c-mode-common-hook 'google-set-c-style))
 
+  ;; markdown-mode
   (use-package markdown-mode
     :hook
     (markdown-mode . auto-fill-mode)
     (markdown-mode . visual-line-mode))
 
+  ;; moinmoin-mode
   (progn                                ;In the ~/.lisp directory
     (require 'moinmoin-mode))
 
+  ;; org
   (use-package org
     :hook
     (org-mode . org-indent-mode)
@@ -618,16 +633,19 @@ before packages are loaded."
     (add-hook 'org-mode-hook '(lambda () nil
                                 (add-hook 'before-save-hook 'delete-trailing-whitespace))))
 
+  ;; sh-extra-font-lock
   (progn                                ;In the ~/.lisp directory
     (require 'sh-extra-font-lock)
     (add-hook 'sh-mode-hook 'sh-extra-font-lock-activate))
 
+  ;; sh-script
   (use-package sh-script
     :hook
     (sh-mode . flycheck-mode)
     :init
     (setq sh-basic-offset 2))
 
+  ;; slack
   (use-package slack
     :defer t
     :config
@@ -638,21 +656,28 @@ before packages are loaded."
              :user "mbroe@oakland.edu")
      :subscribed-channels '((general))))
 
+  ;; text-mode
   ;; Turn on visual-line-mode in text-mode buffers.
   (add-hook 'text-mode-hook (lambda () ""
                               (visual-line-mode 1)))
 
+  ;; vterm
   (use-package vterm
     :config
     (bind-key "C-c C-d" 'vterm-send-C-d vterm-mode-map)
     (setq vterm-kill-buffer-on-exit t))
 
+  ;; yaml-mode
   (use-package yaml-mode
     :hook
     (yaml-mode . highlight-indentation-current-column-mode)
     :config
     (add-hook 'yaml-mode-hook '(lambda () nil
                                  (add-hook 'before-save-hook 'delete-trailing-whitespace))))
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; General functionality ;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   ;; Add character insertion shortcut
   (spacemacs/set-leader-keys "ic" 'insert-char)
