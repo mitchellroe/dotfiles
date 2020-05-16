@@ -105,7 +105,6 @@ This function should only modify configuration layer settings."
                                       fill-column-indicator
                                       gitlab
                                       go-snippets
-                                      ;; helm-rg
                                       ini-mode
                                       mermaid-mode
                                       poly-markdown
