@@ -47,6 +47,10 @@ addToPath "/opt/runit/command" "${HOME}/.rbenv/bin" \
 # snapd
 addToPath "/var/lib/snapd/snap/bin"
 
+# Change over to neovim
+alias vi='nvim'
+alias vim='nvim'
+
 export PATH
 
 # Left over from the GitLab setup.
