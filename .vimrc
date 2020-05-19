@@ -17,6 +17,9 @@ set softtabstop=2
 set autoindent
 set smartindent
 
+" Highlight substitutions as you type
+set inccommand=nosplit
+
 " NERDCommenter
 " " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
