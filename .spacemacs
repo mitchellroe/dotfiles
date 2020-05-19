@@ -61,7 +61,8 @@ This function should only modify configuration layer settings."
      ;; helm
      html
      ivy
-     ;; javascript
+     (javascript :variables
+                 js-indent-level 2)
      latex
      lsp
      (markdown :variables
@@ -82,6 +83,7 @@ This function should only modify configuration layer settings."
      spell-checking
      sql
      syntax-checking
+     tern                               ;For javascript layer support
      treemacs
      version-control
      vimscript
