@@ -51,6 +51,11 @@ addToPath "/var/lib/snapd/snap/bin"
 alias vi='nvim'
 alias vim='nvim'
 
+# Pyenv
+export PYENV_ROOT="${HOME}/.pyenv"
+addToPath "${PYENV_ROOT}/bin"
+command -v pyenv > /dev/null && eval "$(pyenv init -)"
+
 export PATH
 
 # Left over from the GitLab setup.
