@@ -63,6 +63,9 @@ command -v pyenv > /dev/null && eval "$(pyenv init -)"
 #   new-session -n $HOST
 alias tmux='tmux attach'
 
+############################
+# Leave these steps for last
+############################
 export PATH
 
 # Left over from the GitLab setup.
