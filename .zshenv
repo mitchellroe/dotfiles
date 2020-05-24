@@ -47,9 +47,11 @@ addToPath "/opt/runit/command" "${HOME}/.rbenv/bin" \
 # snapd
 addToPath "/var/lib/snapd/snap/bin"
 
-# Change over to neovim
-alias vi='nvim'
-alias vim='nvim'
+# Use vimx where it is available
+command -v vimx > /dev/null && {
+  alias vi='vimx'
+  alias vim='vimx'
+}
 
 # Pyenv
 export PYENV_ROOT="${HOME}/.pyenv"
