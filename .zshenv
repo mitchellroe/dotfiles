@@ -56,6 +56,11 @@ export PYENV_ROOT="${HOME}/.pyenv"
 addToPath "${PYENV_ROOT}/bin"
 command -v pyenv > /dev/null && eval "$(pyenv init -)"
 
+# tmux
+# Make sure you have the following line in your ~/.tmux.conf:
+#   new-session -n $HOST
+alias tmux='tmux attach'
+
 export PATH
 
 # Left over from the GitLab setup.
