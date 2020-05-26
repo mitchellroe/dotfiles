@@ -1,10 +1,10 @@
 # ls
-l='ls -lah'
-l.='ls -d .* --color=auto'
-la='ls -lAh'
-ll='ls -lh'
-ls='ls --color=tty'
-lsa='ls -lah'
+alias l='ls -lah'
+alias l.='ls -d .* --color=auto'
+alias la='ls -lAh'
+alias ll='ls -lh'
+alias ls='ls --color=tty'
+alias lsa='ls -lah'
 
 # git
 alias g=git
