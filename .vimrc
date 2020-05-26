@@ -70,7 +70,7 @@
     nnoremap <F12> :NERDTreeVCS<cr>
   " }
 
-  " simplyfold {
+  " SimplyFold {
     let g:SimpylFold_docstring_preview = 1
   " }
 
