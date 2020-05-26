@@ -56,6 +56,15 @@
     let g:airline_powerline_fonts = 1
   " }
 
+  " ansible-vim {
+  " }
+
+  " csv {
+  " }
+
+  " fugitive {
+  " }
+
   " gruvbox {
     set background=dark
     colorscheme gruvbox
@@ -86,9 +95,27 @@
     let g:syntastic_check_on_wq = 0
   " }
 
+  " tabular {
+  " }
+
+  " vim-better-whitespace {
+  " }
+
+  " vim-commentary {
+  " }
+
   " vim-markdown {
     filetype plugin on
     let g:markdown_enable_spell_checking = 1
+  " }
+
+  " vim-sensible {
+  " }
+
+  " vim-surround {
+  " }
+
+  " vim-yaml {
   " }
 
 " }
