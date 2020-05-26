@@ -2,11 +2,6 @@
 "
 " Author: Mitchell Roe
 
-" pathogen {
-  execute pathogen#infect()
-  filetype plugin indent on
-" }
-
 " general {
   syntax enable
   set scrolloff=3
@@ -51,6 +46,11 @@
 " }
 
 " packages {
+
+  " pathogen {
+    execute pathogen#infect()
+    filetype plugin indent on
+  " }
 
   " ansible-vim {
   " }
