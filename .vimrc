@@ -8,6 +8,9 @@
   " Allow switching between buffers even if there are unsaved changes
   set hidden
 
+  " Use the system clipboard
+  set clipboard=unnamedplus
+
   set tabstop=2
   set shiftwidth=2
   set expandtab
