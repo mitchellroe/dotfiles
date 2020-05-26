@@ -67,7 +67,7 @@
   " }
 
   " nerdtree {
-    nnoremap <F12> :NERDTreeVCS<cr>
+    nnoremap <leader>n :NERDTreeVCS<cr>
   " }
 
   " SimplyFold {
