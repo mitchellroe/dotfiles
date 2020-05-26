@@ -52,10 +52,6 @@
 
 " packages {
 
-  " airline {
-    let g:airline_powerline_fonts = 1
-  " }
-
   " ansible-vim {
   " }
 
@@ -96,6 +92,10 @@
   " }
 
   " tabular {
+  " }
+
+  " vim-airline {
+    let g:airline_powerline_fonts = 1
   " }
 
   " vim-better-whitespace {
