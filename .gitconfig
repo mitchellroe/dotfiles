@@ -1,0 +1,33 @@
+[user]
+	name = Mitchell Roe
+	email = mbroe@oakland.edu
+	signingkey = C4F7087A5D9EDA99FC71CEF9D22A740C5B3E0D64
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
+[credential]
+	helper = /usr/libexec/git-core/git-credential-libsecret
+[alias]
+  a = add
+  aa = add --all
+  b = branch
+  ba = branch -a
+	bd = branch -d
+  bdf = branch -D
+  br = branch --remote
+  c = commit -v
+  cb = checkout -b
+  cm = checkout main
+  co = checkout
+  cmsg = commit -m
+  d = diff
+  dc = diff --cached
+  f = fetch
+  fa = fetch --all --prune
+  l = pull
+  logo = log --oneline --decorate --graph
+  loga = log --oneline --decorate --graph --all
+  m = merge
+  p = push
+  sm = submodule
+	s = status --find-renames --show-stash

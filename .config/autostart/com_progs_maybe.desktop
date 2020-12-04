@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Work start script
-GenericName=Work start script
-Comment=Start applications based on the time of day
-Exec=bash -c "${HOME}/.local/bin/com_progs_maybe.sh"
-Terminal=false
-Type=Application
-X-GNOME-Autostart-enabled=true

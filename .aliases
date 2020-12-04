@@ -1,0 +1,7 @@
+vpn_cmd='sudo openconnect --protocol=nc --user=mbroe --no-dtls'
+# shellcheck disable=SC2139
+alias vpn="${vpn_cmd} vpn.oakland.edu"
+# shellcheck disable=SC2139
+alias utsvpn="${vpn_cmd} utsvpn.oakland.edu"
+
+# vim:ft=sh:
