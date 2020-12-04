@@ -1,30 +1,40 @@
 [ -e ~/.zshenv-private ] && source ~/.zshenv-private
 
-addToPath() {
+append_to_path() {
   for entry; do
-    case ":$PATH:" in
-      *":${entry}:"*) : ;;         # If it's already in the path, do nothing (i.e. `:`)
-      *) PATH=$PATH:${entry} ;;    # If not, add it.
+    case ":${PATH}:" in
+      *":${entry}:"*) : ;;        # If it's already in the path, do nothing (i.e. `:`)
+      *) PATH=${PATH}:${entry} ;; # If not, add it.
+    esac
+  done
+}
+
+prepend_to_path() {
+  for entry; do
+    case ":${PATH}:" in
+      *":${entry}:"*) : ;;        # If it's already in the path, do nothing (i.e. `:`)
+      *) PATH=${entry}:${PATH} ;; # If not, add it.
     esac
   done
 }
 
 # Prepend local binary directory to the PATH
-addToPath "${HOME}/.local/bin"
+append_to_path "${HOME}/.local/bin"
 
 # Append golang binaries to the PATH
 export GOPATH="${HOME}/go"
-addToPath "${GOPATH}/bin"
+append_to_path "${GOPATH}/bin"
+[ -d "/usr/local/go/bin" ] && append_to_path "/usr/local/go/bin"
 
 # Append super-user binaries to the PATH
-addToPath "/sbin" "/usr/sbin"
+append_to_path "/sbin" "/usr/sbin"
 
 # Keep ls from doing stupid things
 export QUOTING_STYLE=literal
 
 # Mattermost
 export MM_LIVE_RELOAD=true
-addToPath "${HOME}/node_modules/.bin" "/usr/lib/node/bin"
+append_to_path "${HOME}/node_modules/.bin" "/usr/lib/node/bin"
 # For auto-deployment of plugins to my local development environment.
 export MM_SERVICESETTINGS_SITEURL=http://localhost:8065
 export MM_ADMIN_USERNAME=mitchellroe
@@ -35,17 +45,14 @@ export MM_ADMIN_USERNAME=mitchellroe
 # export ALTERNATE_EDITOR='emacs'
 alias e='emacsclient -nw -a emacs'
 
-# Trying to get into vSphere
-alias esxcli="/usr/bin/esxcli --server='vc6.sys.oakland.edu' --username='op_mbroe@admnet' --thumbprint='E3:79:A6:9A:A1:7A:92:6A:59:B2:72:D0:87:6A:CF:EB:18:F0:0C:88'"
-
 # GitLab
-addToPath "/opt/runit/command" "${HOME}/.rbenv/bin" \
+append_to_path "/opt/runit/command" "${HOME}/.rbenv/bin" \
           "${HOME}/.rbenv/shims"
 # Also need to run `eval $(rbenv init -)`, according to rbenv's docs. Run it
 # last, though, as it mucks with the PATH directly.
 
 # snapd
-addToPath "/var/lib/snapd/snap/bin"
+append_to_path "/var/lib/snapd/snap/bin"
 
 # Use vimx where it is available
 command -v vimx > /dev/null && {
@@ -55,13 +62,21 @@ command -v vimx > /dev/null && {
 
 # Pyenv
 export PYENV_ROOT="${HOME}/.pyenv"
-addToPath "${PYENV_ROOT}/bin"
+append_to_path "${PYENV_ROOT}/bin"
 command -v pyenv > /dev/null && eval "$(pyenv init -)"
 
 # tmux
 # Make sure you have the following line in your ~/.tmux.conf:
 #   new-session -n $HOST
-alias tmux='tmux attach'
+tmux_cmd=$(which tmux)
+tmux() {
+  SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock ${tmux_cmd} attach || \
+    SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock ${tmux_cmd}
+}
+
+# man coloration
+export LESS="-R"
+[ -f ~/.LESS_TERMCAP ] && source ~/.LESS_TERMCAP
 
 ############################
 # Leave these steps for last

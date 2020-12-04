@@ -69,7 +69,7 @@ ZSH_THEME_RANDOM_CANDIDATES=()
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ansible git ssh-agent zsh-autosuggestions)
+plugins=(ansible git ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,3 +105,7 @@ keychain=$(command -v keychain) && ${keychain} -q || \
 syntax_hl_file="/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 [ -e "${syntax_hl_file}" ] && source "${syntax_hl_file}" || \
     echo "zsh-syntax-highlighting not installed"
+
+autosuggestions_file="/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+[ -e "${autosuggestions_file}" ] && source "${autosuggestions_file}" || \
+    echo "zsh-autosuggestions not installed"

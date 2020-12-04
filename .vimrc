@@ -3,13 +3,28 @@
 " Author: Mitchell Roe
 
 " general {
+
+  " vim7 {
+    " if v:version < 800
+    "   finish
+    " endif
+  " }
+
+  " vim8 {
+    " if v:version >= 800
+    "   set inccommand=nosplit
+    " endif
+  " }
+
   syntax enable
   set scrolloff=3
   " Allow switching between buffers even if there are unsaved changes
   set hidden
 
   " Use the system clipboard
-  set clipboard=unnamedplus
+  if has('unnamedplus')
+    set clipboard=unnamedplus
+  end
 
   set tabstop=2
   set shiftwidth=2
@@ -27,26 +42,33 @@
 
   set foldmethod=indent
   set foldlevel=99
+
+  set ignorecase smartcase
+
+  " Switch to i-beam cursor on insert mode
+  let &t_SI = "\<Esc>[6 q"
+  let &t_SR = "\<Esc>[4 q"
+  let &t_EI = "\<Esc>[2 q"
 " }
 
 " filetypes {
-  au BufNewFile,BufRead *.py
-        \ set tabstop=4
-        \ set softtabstop=4
-        \ set shiftwidth=4
-        \ set textwidth=79
-        \ set expandtab
-        \ set autoindent
-        \ set fileformat=unix
+  function PythonOptions()
+    set tabstop=4
+    set softtabstop=4
+    set shiftwidth=4
+    set textwidth=79
+    set expandtab
+    set autoindent
+    set fileformat=unix
+  endfunction
+  au BufNewFile,BufRead *.py call PythonOptions()
 
-  au BufNewFile,BufRead *.js, *.html, *.css
-        \ set tabstop=2
-        \ set softtabstop=2
-        \ set shiftwidth=2
+  " au BufNewFile,BufRead *.js
+  "       \ set tabstop=2
+  "       \ set softtabstop=2
+  "       \ set shiftwidth=2
 
-  au BufRead,BufNewFile *.py,*.pyw,*.c,*.h
-        \ match BadWhitespace /\s\+$/
-" }
+  set number relativenumber
 
 " packages {
 
@@ -55,18 +77,31 @@
     filetype plugin indent on
   " }
 
+  " ack.vim {
+  " }
+
   " ansible-vim {
   " }
 
   " csv {
   " }
 
+  " ctrlp.vim {
+  " }
+
   " fugitive {
+  " }
+
+  " fzf {
   " }
 
   " gruvbox {
     set background=dark
     colorscheme gruvbox
+  " }
+
+  " indentLine {
+    let g:indentLine_enabled = 0
   " }
 
   " nerdtree {
@@ -90,6 +125,9 @@
   " tabular {
   " }
 
+  " tmuxline.vim {
+  " }
+
   " vim-airline {
     let g:airline_powerline_fonts = 1
   " }
@@ -100,15 +138,22 @@
   " vim-commentary {
   " }
 
+  " vim-eunuch {
+  " }
+
   " vim-markdown {
     filetype plugin on
     let g:markdown_enable_spell_checking = 1
+    map gf :e <cfile><CR>
   " }
 
   " vim-sensible {
   " }
 
   " vim-surround {
+  " }
+
+  " vim-toml {
   " }
 
   " vim-yaml {
