@@ -3,7 +3,7 @@
 append_to_path() {
   for entry; do
     case ":${PATH}:" in
-      *":${entry}:"*) : ;;        # If it's already in the path, do nothing (i.e. `:`)
+      *":${entry}:"*) : ;; # If it's already in the PATH, do nothing.
       *) PATH=${PATH}:${entry} ;; # If not, add it.
     esac
   done
@@ -12,19 +12,16 @@ append_to_path() {
 prepend_to_path() {
   for entry; do
     case ":${PATH}:" in
-      *":${entry}:"*) : ;;        # If it's already in the path, do nothing (i.e. `:`)
+      *":${entry}:"*) : ;; # If it's already in the path, do nothing (i.e. `:`)
       *) PATH=${entry}:${PATH} ;; # If not, add it.
     esac
   done
 }
 
-# Prepend local binary directory to the PATH
-append_to_path "${HOME}/.local/bin"
-
-# Append golang binaries to the PATH
+# Prepend golang binaries to the PATH
 export GOPATH="${HOME}/go"
-append_to_path "${GOPATH}/bin"
-[ -d "/usr/local/go/bin" ] && append_to_path "/usr/local/go/bin"
+prepend_to_path "${GOPATH}/bin"
+[ -d "/usr/local/go/bin" ] && prepend_to_path "/usr/local/go/bin"
 
 # Append super-user binaries to the PATH
 append_to_path "/sbin" "/usr/sbin"
@@ -41,9 +38,7 @@ export MM_ADMIN_USERNAME=mitchellroe
 # MM_ADMIN_PASSWORD is set in ~/.zshenv-private
 
 # Emacs
-# export EDITOR='emacsclient'
-# export ALTERNATE_EDITOR='emacs'
-alias e='emacsclient -nw -a emacs'
+alias e='emacsclient -nw -a emacs --no-wait'
 
 # GitLab
 append_to_path "/opt/runit/command" "${HOME}/.rbenv/bin" \
@@ -60,28 +55,40 @@ command -v vimx > /dev/null && {
   alias vim='vimx'
 }
 
-# Pyenv
-export PYENV_ROOT="${HOME}/.pyenv"
-append_to_path "${PYENV_ROOT}/bin"
-command -v pyenv > /dev/null && eval "$(pyenv init -)"
-
 # tmux
 # Make sure you have the following line in your ~/.tmux.conf:
 #   new-session -n $HOST
 tmux_cmd=$(which tmux)
 tmux() {
-  SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock ${tmux_cmd} attach || \
-    SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock ${tmux_cmd}
+  SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock ${tmux_cmd} -2 attach || \
+    SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock ${tmux_cmd} -2
 }
 
 # man coloration
 export LESS="-R"
 [ -f ~/.LESS_TERMCAP ] && source ~/.LESS_TERMCAP
 
+# pyenv stuff
+export PYENV_ROOT="${HOME}/.pyenv"
+prepend_to_path "${PYENV_ROOT}/bin"
+command -v pyenv > /dev/null && {
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+}
+
+# rbenv stuff
+command -v rbenv > /dev/null && {
+  eval "$(rbenv init -)"
+}
+
+# kubernetes
+alias k='kubectl'
+
 ############################
 # Leave these steps for last
 ############################
-export PATH
 
-# Left over from the GitLab setup.
-eval "$(rbenv init -)"
+# Prepend local binary directory to the PATH
+prepend_to_path "${HOME}/.local/bin"
+
+export PATH
