@@ -8,7 +8,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="essembeh"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -69,7 +69,7 @@ ZSH_THEME_RANDOM_CANDIDATES=()
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ansible git ssh-agent)
+plugins=(ansible git ssh-agent docker pyenv pipenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -99,13 +99,29 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-keychain=$(command -v keychain) && ${keychain} -q || \
+[ -e ~/.aliases ] && source ~/.aliases
+
+keychain=$(command -v keychain) && ${keychain} -q --agents ssh,gpg || \
     echo "keychain not installed"
+
+# kubernetes zsh auto-completion
+which kubectl > /dev/null && {
+  autoload -Uz compinit
+  compinit
+  source <(kubectl completion zsh)
+}
+
+# minikube zsh auto-completion
+which minikube > /dev/null && {
+  autoload -Uz compinit
+  compinit
+  source <(minikube completion zsh)
+}
 
 syntax_hl_file="/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 [ -e "${syntax_hl_file}" ] && source "${syntax_hl_file}" || \
     echo "zsh-syntax-highlighting not installed"
 
-autosuggestions_file="/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+autosuggestions_file="${HOME}/.opt/zsh-autosuggestions/zsh-autosuggestions.zsh"
 [ -e "${autosuggestions_file}" ] && source "${autosuggestions_file}" || \
     echo "zsh-autosuggestions not installed"
