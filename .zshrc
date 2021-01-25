@@ -69,7 +69,7 @@ ZSH_THEME_RANDOM_CANDIDATES=()
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ansible git ssh-agent docker pyenv pipenv)
+plugins=(ansible git ssh-agent docker pyenv pipenv zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
