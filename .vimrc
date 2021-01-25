@@ -69,6 +69,7 @@
   "       \ set shiftwidth=2
 
   set number relativenumber
+  "noremap <leader>n :set nu! rnu!<CR>
 
 " packages {
 
