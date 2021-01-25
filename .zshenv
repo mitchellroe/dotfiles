@@ -53,6 +53,9 @@ append_to_path "/var/lib/snapd/snap/bin"
 command -v vimx > /dev/null && {
   alias vi='vimx'
   alias vim='vimx'
+  export EDITOR=vimx
+} || {
+  export EDITOR=vim
 }
 
 # tmux
