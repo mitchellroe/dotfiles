@@ -1,4 +1,7 @@
 # -*- mode: gitignore; -*-
+
+# Emacs things
+
 *~
 \#*\#
 /.emacs.desktop
@@ -8,47 +11,48 @@ auto-save-list
 tramp
 .\#*
 
-# Org-mode
+## Org-mode
 .org-id-locations
 *_archive
 
-# flymake-mode
+## flymake-mode
 *_flymake.*
 
-# eshell files
+## eshell files
 /eshell/history
 /eshell/lastdir
 
-# elpa packages
+## elpa packages
 /elpa/
 
-# reftex files
+## reftex files
 *.rel
 
-# AUCTeX auto folder
+## AUCTeX auto folder
 /auto/
 
-# cask packages
+## cask packages
 .cask/
 dist/
 
-# Flycheck
+## Flycheck
 flycheck_*.el
 
-# server auth directory
+## server auth directory
 /server/
 
-# projectiles files
+## projectiles files
 .projectile
 
-# directory configuration
+## directory configuration
 .dir-locals.el
 
-# network security
+## network security
 /network-security.data
 
-## Vim Things
-# Swap
+# Vim Things
+
+## Swap
 [._]*.s[a-v][a-z]
 !*.svg  # comment out if you don't need vector files
 [._]*.sw[a-p]
@@ -56,19 +60,18 @@ flycheck_*.el
 [._]ss[a-gi-z]
 [._]sw[a-p]
 
-# Session
+## Session
 Session.vim
 Sessionx.vim
 
-# Temporary
+## Temporary
 .netrwhist
 *~
-# Auto-generated tag files
+## Auto-generated tag files
 tags
-# Persistent undo
+## Persistent undo
 [._]*.un~
 
 # LibreOffice temporary files
 .~lock.*
 .~lock.*
-
