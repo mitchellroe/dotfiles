@@ -18,33 +18,11 @@ prepend_to_path() {
   done
 }
 
-# Prepend golang binaries to the PATH
-export GOPATH="${HOME}/go"
-prepend_to_path "${GOPATH}/bin"
-[ -d "/usr/local/go/bin" ] && prepend_to_path "/usr/local/go/bin"
-
 # Append super-user binaries to the PATH
 append_to_path "/sbin" "/usr/sbin"
 
 # Keep ls from doing stupid things
 export QUOTING_STYLE=literal
-
-# Mattermost
-export MM_LIVE_RELOAD=true
-append_to_path "${HOME}/node_modules/.bin" "/usr/lib/node/bin"
-# For auto-deployment of plugins to my local development environment.
-export MM_SERVICESETTINGS_SITEURL=http://localhost:8065
-export MM_ADMIN_USERNAME=mitchellroe
-# MM_ADMIN_PASSWORD is set in ~/.zshenv-private
-
-# Emacs
-alias e='emacsclient -nw -a emacs --no-wait'
-
-# GitLab
-append_to_path "/opt/runit/command" "${HOME}/.rbenv/bin" \
-          "${HOME}/.rbenv/shims"
-# Also need to run `eval $(rbenv init -)`, according to rbenv's docs. Run it
-# last, though, as it mucks with the PATH directly.
 
 # snapd
 append_to_path "/var/lib/snapd/snap/bin"
@@ -78,14 +56,6 @@ command -v pyenv > /dev/null && {
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 }
-
-# rbenv stuff
-command -v rbenv > /dev/null && {
-  eval "$(rbenv init -)"
-}
-
-# kubernetes
-alias k='kubectl'
 
 ############################
 # Leave these steps for last
