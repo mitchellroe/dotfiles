@@ -2,19 +2,7 @@
 "
 " Author: Mitchell Roe
 
-" general {
-
-  " vim7 {
-    " if v:version < 800
-    "   finish
-    " endif
-  " }
-
-  " vim8 {
-    " if v:version >= 800
-    "   set inccommand=nosplit
-    " endif
-  " }
+"general:
 
   syntax enable
   set scrolloff=3
@@ -49,9 +37,8 @@
   let &t_SI = "\<Esc>[6 q"
   let &t_SR = "\<Esc>[4 q"
   let &t_EI = "\<Esc>[2 q"
-" }
 
-" filetypes {
+"filetypes:
   function PythonOptions()
     set tabstop=4
     set softtabstop=4
@@ -63,57 +50,23 @@
   endfunction
   au BufNewFile,BufRead *.py call PythonOptions()
 
-  " au BufNewFile,BufRead *.js
-  "       \ set tabstop=2
-  "       \ set softtabstop=2
-  "       \ set shiftwidth=2
-
   set number relativenumber
   "noremap <leader>n :set nu! rnu!<CR>
 
-" packages {
+"packages:
 
-  " pathogen {
+  "pathogen:
     execute pathogen#infect()
     filetype plugin indent on
-  " }
 
-  " ack.vim {
-  " }
-
-  " ansible-vim {
-  " }
-
-  " csv {
-  " }
-
-  " ctrlp.vim {
-  " }
-
-  " fugitive {
-  " }
-
-  " fzf {
-  " }
-
-  " gruvbox {
+  "gruvbox:
     set background=dark
     colorscheme gruvbox
-  " }
 
-  " indentLine {
+  "indentLine
     let g:indentLine_enabled = 0
-  " }
 
-  " nerdtree {
-    nnoremap <leader>n :NERDTreeVCS<cr>
-  " }
-
-  " SimplyFold {
-    let g:SimpylFold_docstring_preview = 1
-  " }
-
-  " syntastic {
+  "syntastic:
     set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
     set statusline+=%*
@@ -121,43 +74,11 @@
     let g:syntastic_auto_loc_list = 1
     let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
-  " }
 
-  " tabular {
-  " }
-
-  " tmuxline.vim {
-  " }
-
-  " vim-airline {
+  "vim-airline:
     let g:airline_powerline_fonts = 1
-  " }
 
-  " vim-better-whitespace {
-  " }
-
-  " vim-commentary {
-  " }
-
-  " vim-eunuch {
-  " }
-
-  " vim-markdown {
+  "vim-markdown:
     filetype plugin on
     let g:markdown_enable_spell_checking = 1
     map gf :e <cfile><CR>
-  " }
-
-  " vim-sensible {
-  " }
-
-  " vim-surround {
-  " }
-
-  " vim-toml {
-  " }
-
-  " vim-yaml {
-  " }
-
-" }
