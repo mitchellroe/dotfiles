@@ -1,31 +1,30 @@
+[include]
+  path = ~/.gitconfig-local
 [user]
-	name = Mitchell Roe
-	email = mbroe@oakland.edu
-	signingkey = C4F7087A5D9EDA99FC71CEF9D22A740C5B3E0D64
-[core]
-	excludesfile = ~/.gitignore_global
-	editor = vim
+  name = Mitchell Roe
 [alias]
 	a = add
-	aa = add --all
-	b = branch
+	aa = add -A
 	ba = branch -a
-	bd = branch -d
-	bdf = branch -D
-	br = branch --remote
-	c = commit -v
-	cb = checkout -b
-	cm = checkout main
+	c = commit
+	cf = clean -f
 	cmsg = commit -m
 	co = checkout
 	d = diff
 	dc = diff --cached
 	f = fetch
-	fa = fetch --all --prune
+	fa = fetch --all
+	fap = fetch --all --prune
 	l = pull
 	loga = log --oneline --decorate --graph --all
 	logo = log --oneline --decorate --graph
 	m = merge
 	p = push
-	s = status --find-renames --show-stash
+	s = status
 	sm = submodule
+	sw = switch
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = true
