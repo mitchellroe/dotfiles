@@ -1,7 +1,7 @@
 [include]
-  path = ~/.gitconfig-local
+	path = ~/.gitconfig-local
 [user]
-  name = Mitchell Roe
+	name = Mitchell Roe
 [alias]
 	a = add
 	aa = add -A
