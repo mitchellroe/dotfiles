@@ -82,3 +82,6 @@
     filetype plugin on
     let g:markdown_enable_spell_checking = 1
     map gf :e <cfile><CR>
+
+  "vim-table-mode:
+    let g:table_mode_corner='|'
