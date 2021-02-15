@@ -83,5 +83,9 @@
     let g:markdown_enable_spell_checking = 1
     map gf :e <cfile><CR>
 
+  "vim-mergetool
+    let g:mergetool_layout = 'mr'
+    let g:mergetool_prefer_revision = 'local'
+
   "vim-table-mode:
     let g:table_mode_corner='|'
