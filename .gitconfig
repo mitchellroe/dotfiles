@@ -5,6 +5,7 @@
 [alias]
 	a = add
 	aa = add -A
+	b = branch
 	ba = branch -a
 	c = commit
 	cf = clean -f
