@@ -8,6 +8,7 @@
 	b = branch
 	ba = branch -a
 	c = commit
+	ca = commit --amend
 	cf = clean -f
 	cmsg = commit -m
 	co = checkout
