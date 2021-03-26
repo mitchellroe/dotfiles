@@ -25,6 +25,7 @@
 	s = status
 	sm = submodule
 	sw = switch
+	swc = switch -c
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
