@@ -1,6 +1,5 @@
 [include]
 	path = ~/.gitconfig-local
-	path = ~/.opt/awesome-dev-helpers/git_aliases/all
 [user]
 	name = Mitchell Roe
 [alias]
@@ -8,16 +7,22 @@
 	aa = add -A
 	b = branch
 	ba = branch -a
+	c = commit
+	ca = commit --amend
 	cf = clean -f
 	cmsg = commit -m
-	dc = "!git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat --cached"
+	co = checkout
+	d = diff
+	dc = diff --cached
 	f = fetch
 	fa = fetch --all
 	fap = fetch --all --prune
+	l = pull
 	loga = log --oneline --decorate --graph --all
 	logo = log --oneline --decorate --graph
 	m = merge
 	p = push
+	s = status
 	sm = submodule
 	sw = switch
 	swc = switch -c
