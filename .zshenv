@@ -61,6 +61,8 @@ command -v pyenv > /dev/null && {
 # Leave these steps for last
 ############################
 
+[ -e ~/.zshenv_private ] && source ~/.zshenv_private
+
 # Prepend local binary directory to the PATH
 prepend_to_path "${HOME}/.local/bin"
 
