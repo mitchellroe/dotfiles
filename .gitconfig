@@ -22,7 +22,7 @@
 	logo = log --oneline --decorate --graph
 	m = merge
 	p = push
-	s = status
+	s = status --short
 	sm = submodule
 	sw = switch
 	swc = switch -c
