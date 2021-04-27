@@ -45,6 +45,9 @@ tmux() {
     SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock ${tmux_cmd} -2
 }
 
+# emacs
+alias ec='emacsclient'
+
 # man coloration
 export LESS="-R"
 [ -f ~/.LESS_TERMCAP ] && source ~/.LESS_TERMCAP
