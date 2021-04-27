@@ -20,6 +20,7 @@
 	l = pull
 	loga = log --oneline --decorate --graph --all
 	logo = log --oneline --decorate --graph
+	logs = log --stat
 	m = merge
 	p = push
 	s = status --short
