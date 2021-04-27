@@ -23,6 +23,8 @@
 	m = merge
 	p = push
 	s = status --short
+	st = status
+	sv = status -vv
 	sm = submodule
 	sw = switch
 	swc = switch -c
