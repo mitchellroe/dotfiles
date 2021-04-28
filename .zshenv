@@ -49,8 +49,11 @@ tmux() {
 alias ec='emacsclient'
 
 # man coloration
-export LESS="-R"
+! [[ "${LESS}" =~ "-R" ]] && export LESS="-R ${LESS}"
 [ -f ~/.LESS_TERMCAP ] && source ~/.LESS_TERMCAP
+
+# less pagination in less (i.e. only paginate if more than one screenful)
+! [[ "${LESS}" =~ "-F" ]] && export LESS="-F ${LESS}"
 
 # pyenv stuff
 export PYENV_ROOT="${HOME}/.pyenv"
