@@ -25,7 +25,7 @@
 	p = push
 	s = status --short
 	st = status
-	sv = status -vv
+	stv = status -vv
 	sm = submodule
 	sw = switch
 	swc = switch -c
