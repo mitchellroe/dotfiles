@@ -5,15 +5,15 @@
 [alias]
 	a = add
 	aa = add -A
-	b = branch
-	ba = branch -a
+	b = !git --no-pager branch
+	ba = !git --no-pager branch -a
 	c = commit
 	ca = commit --amend
 	cf = clean -f
 	cmsg = commit -m
 	co = checkout
-	d = diff
-	dc = diff --cached
+	d = !git --no-pager diff
+	dc = !git --no-pager diff --cached
 	f = fetch
 	fa = fetch --all
 	fap = fetch --all --prune
