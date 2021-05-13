@@ -59,7 +59,7 @@ alias ec='emacsclient'
 export PYENV_ROOT="${HOME}/.pyenv"
 prepend_to_path "${PYENV_ROOT}/bin"
 command -v pyenv > /dev/null && {
-  eval "$(pyenv init -)"
+  #eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 }
 
