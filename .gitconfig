@@ -40,3 +40,5 @@
 	prompt = true
 [core]
 	excludesFile = ~/.gitignore_global
+[color "diff"]
+	whitespace = red reverse
