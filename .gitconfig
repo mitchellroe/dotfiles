@@ -5,6 +5,7 @@
 [alias]
 	a = add
 	aa = add -A
+	ai = add -i
 	b = branch
 	ba = branch -a
 	bd = branch -d
