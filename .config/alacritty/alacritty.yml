@@ -1,0 +1,21 @@
+---
+window:
+  decorations: none
+
+shell:
+  program: /usr/bin/zsh
+  args:
+    - -c
+    - /usr/bin/tmux
+
+cursor:
+  style:
+    blinking: Always
+
+draw_bold_text_with_bright_colors: true
+
+# import:
+  # - ~/.opt/alacritty-theme/themes/solarized_light.yaml
+  # - ~/.opt/alacritty-theme/themes/solarized_dark.yaml
+  # - ~/.opt/alacritty-theme/themes/gruvbox_light.yaml
+  # - ~/.opt/alacritty-theme/themes/gruvbox_dark.yaml
