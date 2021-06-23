@@ -55,13 +55,6 @@ alias ec='emacsclient'
 # less pagination in less (i.e. only paginate if more than one screenful)
 ! [[ "${LESS}" =~ "-F" ]] && export LESS="-F ${LESS}"
 
-# pyenv stuff
-export PYENV_ROOT="${HOME}/.pyenv"
-prepend_to_path "${PYENV_ROOT}/bin"
-command -v pyenv > /dev/null && {
-  #eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-}
 # base16
 BASE16_SHELL="${HOME}/.opt/base16-shell"
 [ -n "$PS1" ] && \
